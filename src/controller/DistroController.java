@@ -44,12 +44,10 @@ public class DistroController {
 
 			String linha = buffer.readLine();
 			while (linha != null) {
-				String[] leLinha = linha.split("\"");
-				for (String i : leLinha) {
-					if (i.contains("PRETTY")) {
-						distro = leLinha[1];
-					}
-				}
+				if (linha.contains("PRETTY")) {
+					String[] leLinha = linha.split("=");
+					distro = leLinha[1];
+				}	
 				linha = buffer.readLine();
 			}
 			buffer.close();
